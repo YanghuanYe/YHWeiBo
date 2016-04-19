@@ -10,20 +10,39 @@
 #import "YYHMainViewController.h"
 #import "YHNewFeatureController.h"
 
+#define YHVersionKey @"version"
+
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
 
+// UserDefaults 优点：
+// 1.不需要关心文件名
+// 2.快速进行键值对存储
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-//    YYHMainViewController *mainVC = [[YYHMainViewController alloc] init];
-//    self.window.rootViewController = mainVC;
-    YHNewFeatureController *newFeatureVC = [[YHNewFeatureController alloc] init];
-    self.window.rootViewController = newFeatureVC;
+    
+    // 获取当前version
+    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
+    
+    // 获取上个verision
+    NSString *previousVersion = [[NSUserDefaults standardUserDefaults] objectForKey:YHVersionKey];
+    
+    // 版本号对比加载页面
+    if ([currentVersion isEqualToString:previousVersion]) {
+        YYHMainViewController *mainVC = [[YYHMainViewController alloc] init];
+        self.window.rootViewController = mainVC;
+
+    } else {
+        YHNewFeatureController *newFeatureVC = [[YHNewFeatureController alloc] init];
+        self.window.rootViewController = newFeatureVC;
+        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:YHVersionKey];
+    }
     
     [self.window makeKeyAndVisible];
     

@@ -68,7 +68,7 @@ static NSString *reuseID = @"cell";
     control.pageIndicatorTintColor = [UIColor grayColor];
 //    control.currentPageIndicatorTintColor = [UIColor whiteColor];
     
-    control.center = CGPointMake(kScreenW*0.5, kScrrenH-50);
+    control.center = CGPointMake(kScreenW*0.5, kScrrenH*0.95);
     self.control = control;
     [self.view addSubview:control];
     
@@ -98,6 +98,8 @@ static NSString *reuseID = @"cell";
     
     NSString *imageName = [NSString stringWithFormat:@"new_feature_%li", indexPath.row+1];
     cell.cellImage = [UIImage imageNamed:imageName];
+    
+    [cell setIndexPath:indexPath count:4];
     
     return cell;
 }
