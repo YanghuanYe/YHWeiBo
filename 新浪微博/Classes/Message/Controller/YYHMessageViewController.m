@@ -17,13 +17,45 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    topImageView.userInteractionEnabled = YES;
+    
     [self setTopNavBarTitle:@"消息"];
+    
+    [self setTopNavBarRightButtonWithTitle:@"发起聊天"];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)rightBtnClick
+{
+    [UIView animateWithDuration:0.1 animations:^{
+        self.rightBtn.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.5, 0.5);
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.2 animations:^{
+            self.rightBtn.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.2, 1.2);
+        } completion:^(BOOL finished) {
+            self.rightBtn.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
+        }];
+    }];
+    NSLog(@"clickclickclick");
+}
+/*[UIView animateWithDuration:0.1 animations:^{
+ view.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.5, 0.5);
+ } completion:^(BOOL finished) {
+ [UIView animateWithDuration:0.2 animations:^{
+ view.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.2, 1.2);
+ } completion:^(BOOL finished) {
+ [UIView animateWithDuration:0.1 animations:^{
+ view.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
+ } completion:^(BOOL finished) {
+ 
+ }];
+ }];
+ }];*/
 
 /*
 #pragma mark - Navigation

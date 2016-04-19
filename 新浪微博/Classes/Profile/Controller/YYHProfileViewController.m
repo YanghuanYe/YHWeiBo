@@ -18,6 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setTopNavBarTitle:@"个人"];
+    
+    [self setTopNavBarRightButtonWithTitle:@"设置"];
 }
 
 - (void)didReceiveMemoryWarning {

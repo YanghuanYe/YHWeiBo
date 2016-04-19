@@ -33,44 +33,30 @@
 {
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 25, self.view.frame.size.width, 30)];
     titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.textColor = [UIColor orangeColor];
+//    titleLabel.textColor = [UIColor orangeColor];
     titleLabel.font = [UIFont systemFontOfSize:18];
     titleLabel.text = title;
 
     [topImageView addSubview:titleLabel];
 }
 
-//#pragma mark - 设置自定义导航栏的中间按钮
-//- (UIButton *)setTopNavBarCenterBtn:(NSString *)title normalImageName:(NSString *)imageName selectedImageName:(NSString *)selImageName
-//{
-//    UIButton *centerBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 25, self.view.frame.size.width, 30)];
-//    [centerBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-//    [centerBtn setTitle:title forState:UIControlStateNormal];
-//    [centerBtn setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-//    [centerBtn setImage:[UIImage imageNamed:selImageName] forState:UIControlStateSelected];
-////    centerBtn.userInteractionEnabled = YES;
-//    [centerBtn addTarget:self action:@selector(centerBtnClick) forControlEvents:UIControlEventTouchUpInside];
-////    [self setBtn:centerBtn];
-//    
-//
-//    
-//    [topImageView addSubview:centerBtn];
-//    return centerBtn;
-//}
-//
-//- (void)centerBtnClick
-//{
-//    if (self.delegate!= nil && [self.delegate respondsToSelector:@selector(centerBtnClick)]) {
-//        [self.delegate centerBtnClickEvent];
-//    }
-//}
-
-//- (void)setBtn:(UIButton *)button;
-//{
-//    button.titleEdgeInsets = UIEdgeInsetsMake(0, -button.imageView.frame.size.width - button.frame.size.width + button.titleLabel.intrinsicContentSize.width, 0, 0);
-//    button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -button.titleLabel.frame.size.width - button.frame.size.width + button.imageView.frame.size.width);
-//}
-
+#pragma mark - 设置自定义导航栏的中间按钮
+- (UIButton *)setTopNavBarCenterBtn:(NSString *)title normalImageName:(NSString *)imageName selectedImageName:(NSString *)selImageName
+{
+    self.centerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _centerBtn.frame = CGRectMake(100, 25, self.view.frame.size.width-100*2, 30);
+//    [_centerBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    [_centerBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_centerBtn setTitle:title forState:UIControlStateNormal];
+    [_centerBtn setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    [_centerBtn setImage:[UIImage imageNamed:selImageName] forState:UIControlStateSelected];
+    [_centerBtn addTarget:self action:@selector(centerBtnClick) forControlEvents:UIControlEventTouchUpInside];
+//    //调用private method实现button内文字在左，图片在右
+//    [self transformImageAndTitleHorizontalWithButton:self.centerBtn];
+    
+    [topImageView addSubview:self.centerBtn];
+    return self.centerBtn;
+}
 #pragma mark - 设置导航栏左边按钮
 - (void)setTopNavBarLeftButtonWithImageName:(NSString *)imageName
 {
@@ -85,7 +71,30 @@
     [topImageView addSubview:_leftBtn];
 }
 
-#pragma mark - 设置导航栏右边按钮
+- (void)setTopNavBarLeftButtonWithNorImageName:(NSString *)norImageName highImageName:(NSString *)highImageName
+{
+    self.leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.leftBtn.frame = CGRectMake(10, 28, 28, 28);
+    self.leftBtn.backgroundColor = [UIColor clearColor];
+    [self.leftBtn addTarget:self action:@selector(leftBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.leftBtn setBackgroundImage:[UIImage imageNamed:norImageName] forState:UIControlStateNormal];
+    [self.leftBtn setBackgroundImage:[UIImage imageNamed:highImageName] forState:UIControlStateHighlighted];
+    [topImageView addSubview:self.leftBtn];
+}
+
+- (void)setTopNavBarLeftButtonWithTitle:(NSString *)buttonTitle
+{
+    self.leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.leftBtn.frame = CGRectMake(0, 25, 80, 34);
+    self.leftBtn.backgroundColor = [UIColor clearColor];
+    self.leftBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [self.leftBtn addTarget:self action:@selector(leftBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.leftBtn setTitle:buttonTitle forState:UIControlStateNormal];
+    [self.leftBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    [topImageView addSubview:self.leftBtn];
+}
+
+#pragma mark - 设置导航栏右边纯图片按钮
 - (void)setTopNavBarRightButtonWithImageName:(NSString *)imageName
 {
     UIImageView *rightView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
@@ -99,8 +108,37 @@
     [topImageView addSubview:_rightBtn];
 }
 
+- (void)setTopNavBarRightButtonWithNorImageName:(NSString *)norImageName highImageName:(NSString *)highImageName
+{
+    self.rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _rightBtn.frame = CGRectMake(kScreenW-10-28, 28, 28, 28);
+    _rightBtn.backgroundColor = [UIColor clearColor];
+    [_rightBtn setBackgroundImage:[UIImage imageNamed:norImageName] forState:UIControlStateNormal];
+    [_rightBtn setBackgroundImage:[UIImage imageNamed:highImageName] forState:UIControlStateHighlighted];
+    [_rightBtn addTarget:self action:@selector(rightBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [topImageView addSubview:_rightBtn];
+}
+
+- (void)setTopNavBarRightButtonWithTitle:(NSString *)buttonTitle
+{
+    self.rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    // 向右留出12的间隙
+    _rightBtn.frame = CGRectMake(kScreenW-80, 25, 68, 34);
+    _rightBtn.backgroundColor = [UIColor clearColor];
+    // 右对齐
+//    self.rightBtn.titleLabel.textAlignment = NSTextAlignmentRight;
+//    NSMutableDictionary *attributeDic = @{};
+//    self.rightBtn setAttributedTitle:<#(nullable NSAttributedString *)#> forState:<#(UIControlState)#>
+    [self.rightBtn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
+    self.rightBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [self.rightBtn setTitle:buttonTitle forState:UIControlStateNormal];
+    [self.rightBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    [_rightBtn addTarget:self action:@selector(rightBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [topImageView addSubview:_rightBtn];
+}
+
 #pragma mark - 设置导航栏左边按钮文字
-- (void)setTopBarLeftBarItemWithTitle:(NSString *)title
+- (void)setTopNavBarLeftBarItemWithTitle:(NSString *)title
 {
     UILabel *textLabel = [self generateLabel:title];
     _leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -112,7 +150,7 @@
 }
 
 #pragma mark - 设置导航栏右边按钮文字
-- (void)setTopBarRightBarItemWithTitle:(NSString *)title
+- (void)setTopNavBarRightBarItemWithTitle:(NSString *)title
 {
     UILabel *textLabel = [self generateLabel:title];
     _rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -164,6 +202,11 @@
     
 }
 
+- (void)centerBtnClick
+{
+    
+}
+
 - (void)backBtnClick
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -187,9 +230,22 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - 把button的图片和文字上下排列，更改按钮的字体颜色
+- (void)transformImageAndTitleVerticalWithButton:(UIButton *)button
+{
+    button.titleEdgeInsets = UIEdgeInsetsMake(0, -button.imageView.frame.size.width, -button.imageView.frame.size.height, 0);
+    // button.imageEdgeInsets = UIEdgeInsetsMake(-button.titleLabel.frame.size.height, 0, 0, -button.titleLabel.frame.size.width);
+    // 由于iOS8中titleLabel的size为0，用上面这样设置有问题，修改一下即可
+    button.imageEdgeInsets = UIEdgeInsetsMake(-button.titleLabel.intrinsicContentSize.height, 0, 0, -button.titleLabel.intrinsicContentSize.width);
+    button.titleLabel.font = [UIFont systemFontOfSize:12];
+    [button setTitleColor:[YYHUtill colorWithHexString:@"#999999"] forState:UIControlStateNormal];
+    [button setTitleColor:[YYHUtill colorWithHexString:@"#ff6a0f"] forState:UIControlStateSelected];
+}
+
+- (void)transformImageAndTitleHorizontalWithButton:(UIButton *)button
+{
+    button.titleEdgeInsets = UIEdgeInsetsMake(0, -button.imageView.frame.size.width - button.frame.size.width , 0, 0);//+ button.titleLabel.intrinsicContentSize.width - button.frame.size.width
+    button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -button.titleLabel.frame.size.width );//- button.frame.size.width + button.imageView.frame.size.width
 }
 
 /*
