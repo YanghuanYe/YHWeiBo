@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "YYHMainViewController.h"
+#import "YHNewFeatureController.h"
 
 @interface AppDelegate ()
 
@@ -19,8 +20,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    YYHMainViewController *mainVC = [[YYHMainViewController alloc] init];
-    self.window.rootViewController = mainVC;
+//    YYHMainViewController *mainVC = [[YYHMainViewController alloc] init];
+//    self.window.rootViewController = mainVC;
+    YHNewFeatureController *newFeatureVC = [[YHNewFeatureController alloc] init];
+    self.window.rootViewController = newFeatureVC;
+    
     [self.window makeKeyAndVisible];
     
     return YES;

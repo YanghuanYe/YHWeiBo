@@ -17,6 +17,10 @@
 		185CF84A1CB74171005E1EEC /* YYHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 185CF8491CB74171005E1EEC /* YYHTabBar.m */; };
 		185CF84E1CB74C1E005E1EEC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185CF84D1CB74C1E005E1EEC /* UIKit.framework */; };
 		185CF8511CB751D7005E1EEC /* YYHUtill.m in Sources */ = {isa = PBXBuildFile; fileRef = 185CF8501CB751D7005E1EEC /* YYHUtill.m */; };
+		185EDE871CC5D16900BBDFCE /* YHHomeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 185EDE861CC5D16900BBDFCE /* YHHomeTableView.m */; };
+		185EDE8A1CC5F97900BBDFCE /* YHSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 185EDE891CC5F97900BBDFCE /* YHSearchBar.m */; };
+		185EDE921CC60C3B00BBDFCE /* YHNewFeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185EDE911CC60C3B00BBDFCE /* YHNewFeatureController.m */; };
+		185EDE951CC611EC00BBDFCE /* YHNewFeatureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 185EDE941CC611EC00BBDFCE /* YHNewFeatureCell.m */; };
 		18B8B4811CC0DE4000C13E25 /* YYHBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B8B47C1CC0DE4000C13E25 /* YYHBaseViewController.m */; };
 		18B8B4A31CC0E84400C13E25 /* YYHHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B8B4A21CC0E84400C13E25 /* YYHHomeViewController.m */; };
 		18B8B4A61CC0E8F700C13E25 /* YYHMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B8B4A51CC0E8F700C13E25 /* YYHMessageViewController.m */; };
@@ -24,6 +28,9 @@
 		18B8B4AC1CC0E91600C13E25 /* YYHDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B8B4AB1CC0E91600C13E25 /* YYHDiscoverViewController.m */; };
 		18B8B4D71CC3C8D500C13E25 /* YYHMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B8B4D31CC3C8D500C13E25 /* YYHMainViewController.m */; };
 		18B8B4DB1CC4BBB300C13E25 /* YHCover.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B8B4DA1CC4BBB300C13E25 /* YHCover.m */; };
+		18B8B4E01CC5140F00C13E25 /* UIImage+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B8B4DF1CC5140F00C13E25 /* UIImage+Image.m */; };
+		18B8B4E31CC5161800C13E25 /* YHPopMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B8B4E21CC5161800C13E25 /* YHPopMenu.m */; };
+		18B8B4E61CC5175000C13E25 /* YHCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B8B4E51CC5175000C13E25 /* YHCenterTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +71,14 @@
 		185CF84D1CB74C1E005E1EEC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		185CF84F1CB751D7005E1EEC /* YYHUtill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYHUtill.h; path = ../YYHUtill.h; sourceTree = "<group>"; };
 		185CF8501CB751D7005E1EEC /* YYHUtill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYHUtill.m; path = ../YYHUtill.m; sourceTree = "<group>"; };
+		185EDE851CC5D16900BBDFCE /* YHHomeTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHHomeTableView.h; sourceTree = "<group>"; };
+		185EDE861CC5D16900BBDFCE /* YHHomeTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHHomeTableView.m; sourceTree = "<group>"; };
+		185EDE881CC5F97900BBDFCE /* YHSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHSearchBar.h; sourceTree = "<group>"; };
+		185EDE891CC5F97900BBDFCE /* YHSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHSearchBar.m; sourceTree = "<group>"; };
+		185EDE901CC60C3B00BBDFCE /* YHNewFeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHNewFeatureController.h; sourceTree = "<group>"; };
+		185EDE911CC60C3B00BBDFCE /* YHNewFeatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHNewFeatureController.m; sourceTree = "<group>"; };
+		185EDE931CC611EC00BBDFCE /* YHNewFeatureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHNewFeatureCell.h; sourceTree = "<group>"; };
+		185EDE941CC611EC00BBDFCE /* YHNewFeatureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHNewFeatureCell.m; sourceTree = "<group>"; };
 		18B8B47B1CC0DE4000C13E25 /* YYHBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHBaseViewController.h; sourceTree = "<group>"; };
 		18B8B47C1CC0DE4000C13E25 /* YYHBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHBaseViewController.m; sourceTree = "<group>"; };
 		18B8B47D1CC0DE4000C13E25 /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
@@ -80,6 +95,12 @@
 		18B8B4D81CC482A100C13E25 /* 新浪微博.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "新浪微博.pch"; sourceTree = "<group>"; };
 		18B8B4D91CC4BBB300C13E25 /* YHCover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHCover.h; sourceTree = "<group>"; };
 		18B8B4DA1CC4BBB300C13E25 /* YHCover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHCover.m; sourceTree = "<group>"; };
+		18B8B4DE1CC5140F00C13E25 /* UIImage+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Image.h"; sourceTree = "<group>"; };
+		18B8B4DF1CC5140F00C13E25 /* UIImage+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Image.m"; sourceTree = "<group>"; };
+		18B8B4E11CC5161800C13E25 /* YHPopMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHPopMenu.h; sourceTree = "<group>"; };
+		18B8B4E21CC5161800C13E25 /* YHPopMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHPopMenu.m; sourceTree = "<group>"; };
+		18B8B4E41CC5175000C13E25 /* YHCenterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHCenterTableViewController.h; sourceTree = "<group>"; };
+		18B8B4E51CC5175000C13E25 /* YHCenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHCenterTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +195,49 @@
 			path = "新浪微博UITests";
 			sourceTree = "<group>";
 		};
+		185EDE8B1CC60B2600BBDFCE /* NewFeature */ = {
+			isa = PBXGroup;
+			children = (
+				185EDE8C1CC60B2600BBDFCE /* Controller */,
+				185EDE8D1CC60B2600BBDFCE /* Model */,
+				185EDE8E1CC60B2600BBDFCE /* View */,
+				185EDE8F1CC60B2600BBDFCE /* ViewModel */,
+			);
+			path = NewFeature;
+			sourceTree = "<group>";
+		};
+		185EDE8C1CC60B2600BBDFCE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				185EDE901CC60C3B00BBDFCE /* YHNewFeatureController.h */,
+				185EDE911CC60C3B00BBDFCE /* YHNewFeatureController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		185EDE8D1CC60B2600BBDFCE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		185EDE8E1CC60B2600BBDFCE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				185EDE931CC611EC00BBDFCE /* YHNewFeatureCell.h */,
+				185EDE941CC611EC00BBDFCE /* YHNewFeatureCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		185EDE8F1CC60B2600BBDFCE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		18B8B4791CC0DE4000C13E25 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +245,7 @@
 				185CF84F1CB751D7005E1EEC /* YYHUtill.h */,
 				185CF8501CB751D7005E1EEC /* YYHUtill.m */,
 				18B8B47A1CC0DE4000C13E25 /* Controller */,
+				18B8B4DC1CC513E800C13E25 /* Other */,
 				18B8B47E1CC0DE4000C13E25 /* Model */,
 				18B8B47F1CC0DE4000C13E25 /* View */,
 				18B8B4801CC0DE4000C13E25 /* ViewModel */,
@@ -223,10 +288,10 @@
 		18B8B4821CC0DE6400C13E25 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				185EDE8B1CC60B2600BBDFCE /* NewFeature */,
 				18B8B4831CC0DE6400C13E25 /* Discover */,
 				18B8B4881CC0DE6400C13E25 /* Home */,
 				18B8B4921CC0DE6400C13E25 /* Message */,
-				18B8B4971CC0DE6400C13E25 /* Other */,
 				18B8B4991CC0DE6400C13E25 /* Profile */,
 			);
 			path = Classes;
@@ -262,6 +327,8 @@
 		18B8B4861CC0DE6400C13E25 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				185EDE881CC5F97900BBDFCE /* YHSearchBar.h */,
+				185EDE891CC5F97900BBDFCE /* YHSearchBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -289,6 +356,10 @@
 			children = (
 				18B8B4A11CC0E84400C13E25 /* YYHHomeViewController.h */,
 				18B8B4A21CC0E84400C13E25 /* YYHHomeViewController.m */,
+				18B8B4E41CC5175000C13E25 /* YHCenterTableViewController.h */,
+				18B8B4E51CC5175000C13E25 /* YHCenterTableViewController.m */,
+				185EDE851CC5D16900BBDFCE /* YHHomeTableView.h */,
+				185EDE861CC5D16900BBDFCE /* YHHomeTableView.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -305,6 +376,8 @@
 			children = (
 				18B8B4D91CC4BBB300C13E25 /* YHCover.h */,
 				18B8B4DA1CC4BBB300C13E25 /* YHCover.m */,
+				18B8B4E11CC5161800C13E25 /* YHPopMenu.h */,
+				18B8B4E21CC5161800C13E25 /* YHPopMenu.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -355,21 +428,6 @@
 			children = (
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		18B8B4971CC0DE6400C13E25 /* Other */ = {
-			isa = PBXGroup;
-			children = (
-				18B8B4981CC0DE6400C13E25 /* Category */,
-			);
-			path = Other;
-			sourceTree = "<group>";
-		};
-		18B8B4981CC0DE6400C13E25 /* Category */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Category;
 			sourceTree = "<group>";
 		};
 		18B8B4991CC0DE6400C13E25 /* Profile */ = {
@@ -452,6 +510,23 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		18B8B4DC1CC513E800C13E25 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				18B8B4DD1CC513E800C13E25 /* Category */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		18B8B4DD1CC513E800C13E25 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				18B8B4DE1CC5140F00C13E25 /* UIImage+Image.h */,
+				18B8B4DF1CC5140F00C13E25 /* UIImage+Image.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -587,17 +662,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				185CF84A1CB74171005E1EEC /* YYHTabBar.m in Sources */,
+				185EDE8A1CC5F97900BBDFCE /* YHSearchBar.m in Sources */,
+				185EDE951CC611EC00BBDFCE /* YHNewFeatureCell.m in Sources */,
 				18B8B4A91CC0E90800C13E25 /* YYHProfileViewController.m in Sources */,
 				185CF81D1CB65A32005E1EEC /* ViewController.m in Sources */,
 				18B8B4811CC0DE4000C13E25 /* YYHBaseViewController.m in Sources */,
 				18B8B4A31CC0E84400C13E25 /* YYHHomeViewController.m in Sources */,
+				185EDE921CC60C3B00BBDFCE /* YHNewFeatureController.m in Sources */,
 				18B8B4A61CC0E8F700C13E25 /* YYHMessageViewController.m in Sources */,
 				185CF81A1CB65A32005E1EEC /* AppDelegate.m in Sources */,
+				18B8B4E31CC5161800C13E25 /* YHPopMenu.m in Sources */,
+				18B8B4E01CC5140F00C13E25 /* UIImage+Image.m in Sources */,
 				185CF8171CB65A32005E1EEC /* main.m in Sources */,
 				18B8B4DB1CC4BBB300C13E25 /* YHCover.m in Sources */,
+				18B8B4E61CC5175000C13E25 /* YHCenterTableViewController.m in Sources */,
 				18B8B4AC1CC0E91600C13E25 /* YYHDiscoverViewController.m in Sources */,
 				185CF8511CB751D7005E1EEC /* YYHUtill.m in Sources */,
 				18B8B4D71CC3C8D500C13E25 /* YYHMainViewController.m in Sources */,
+				185EDE871CC5D16900BBDFCE /* YHHomeTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

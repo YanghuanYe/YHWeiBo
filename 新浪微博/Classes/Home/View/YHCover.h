@@ -7,8 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+@class YHCover;
+
+@protocol YHCoverDelegate <NSObject>
+
+- (void)coverDidClickCover:(YHCover *)cover;
+
+@end
 
 @interface YHCover : UIView
+
+@property (nonatomic, weak)id<YHCoverDelegate>delegate;
+
+// 设置蒙板浅灰色背景 BOOL
+@property (nonatomic, assign)BOOL dimBackgroundColor;
 
 + (instancetype)show;
 

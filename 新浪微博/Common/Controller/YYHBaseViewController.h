@@ -21,6 +21,7 @@
 
 //@property (nonatomic, weak)id<YYHBaseViewControllerDelegate> delegate;
 
+@property (nonatomic, strong)UIButton *centerBtn;
 @property (nonatomic, strong)UIButton *backBtn;
 @property (nonatomic, strong)UIButton *leftBtn;
 @property (nonatomic, strong)UIButton *rightBtn;
@@ -29,20 +30,30 @@
 // 设置自定义导航栏的title
 - (void)setTopNavBarTitle:(NSString *)title;
 
-//// 设置自定义导航栏的中间按钮
-//- (UIButton *)setTopNavBarCenterBtn:(NSString *)title normalImageName:(NSString *)imageName selectedImageName:(NSString *)selImageName;
+// 设置自定义导航栏的中间按钮
+- (UIButton *)setTopNavBarCenterBtn:(NSString *)title normalImageName:(NSString *)imageName selectedImageName:(NSString *)selImageName;
 
-// 设置navigationBar 左边按钮图片
+// 设置navigationBar 左边纯图片按钮
 - (void)setTopNavBarLeftButtonWithImageName:(NSString *)imageName;
 
-// 设置navigationBar 右边按钮图片
+- (void)setTopNavBarLeftButtonWithNorImageName:(NSString *)norImageName highImageName:(NSString *)highImageName;
+
+// 设置navigationBar 左边纯文字按钮
+- (void)setTopNavBarLeftButtonWithTitle:(NSString *)buttonTitle;
+
+// 设置navigationBar 右边纯图片按钮
 - (void)setTopNavBarRightButtonWithImageName:(NSString *)imageName;
 
+- (void)setTopNavBarRightButtonWithNorImageName:(NSString *)norImageName highImageName:(NSString *)highImageName;
+
+// 设置navigationBar 右边纯文字按钮
+- (void)setTopNavBarRightButtonWithTitle:(NSString *)buttonTitle;
+
 // 设置navigationBar 左边按钮的文字标题
-- (void)setTopBarLeftBarItemWithTitle:(NSString *)title;
+- (void)setTopNavBarLeftBarItemWithTitle:(NSString *)title;
 
 // 设置navigationBar 右边按钮的文字标题
-- (void)setTopBarRightBarItemWithTitle:(NSString *)title;
+- (void)setTopNavBarRightBarItemWithTitle:(NSString *)title;
 
 // 设置navigationBar 返回按钮
 - (void)setTopNavBackButton;

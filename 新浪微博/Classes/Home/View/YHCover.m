@@ -13,17 +13,33 @@
 + (instancetype)show
 {
     YHCover *cover = [[self alloc] initWithFrame:kScreenBounds];
-//    cover.backgroundColor = [UIColor clearColor];
-    cover.backgroundColor = [UIColor redColor];
+    cover.backgroundColor = [UIColor clearColor];
     
     [YHKeyWindow addSubview:cover];
     
     return cover;
 }
 
+- (void)setDimBackgroundColor:(BOOL)dimBackgroundColor
+{
+    _dimBackgroundColor = dimBackgroundColor;
+    
+    if (dimBackgroundColor) {
+        self.backgroundColor = [UIColor grayColor];
+        self.alpha = 0.5;
+    } else {
+        self.alpha = 1;
+        self.backgroundColor = [UIColor clearColor];
+    }
+}
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [self removeFromSuperview];
+    
+    if (self.delegate!=nil && [self.delegate respondsToSelector:@selector(coverDidClickCover:)]) {
+        [self.delegate coverDidClickCover:self];
+    }
 }
 
 @end

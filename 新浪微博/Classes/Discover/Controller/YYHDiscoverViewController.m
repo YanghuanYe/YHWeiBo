@@ -7,8 +7,11 @@
 //
 
 #import "YYHDiscoverViewController.h"
+#import "YHSearchBar.h"
 
 @interface YYHDiscoverViewController ()
+
+@property (nonatomic, strong)YHSearchBar *searchBar;
 
 @end
 
@@ -18,12 +21,24 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self setTopNavBarTitle:@"发现"];
+//    [self setTopNavBarTitle:@"发现"];
+    
+    topImageView.userInteractionEnabled = YES;
+    
+    CGFloat margin = 10;
+    self.searchBar = [[YHSearchBar alloc] initWithFrame:CGRectMake(5, 25, kScreenW-margin, 30)];
+    self.searchBar.placeholder = @"大家都在搜";
+    [topImageView addSubview:self.searchBar];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.searchBar endEditing:YES];
 }
 
 /*

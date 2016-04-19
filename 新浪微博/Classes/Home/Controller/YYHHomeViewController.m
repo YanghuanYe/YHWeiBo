@@ -8,86 +8,65 @@
 
 #import "YYHHomeViewController.h"
 //#import "Macro.h"
+#import "YHCover.h"
+#import "YHPopMenu.h"
+#import "YHCenterTableViewController.h"
 
-@interface YYHHomeViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface YYHHomeViewController () <UITableViewDelegate, UITableViewDataSource, YHCoverDelegate>
 
-
+@property (nonatomic, strong)YHCenterTableViewController *centerTableVC;
 
 @end
 
 @implementation YYHHomeViewController
+
+- (YHCenterTableViewController *)centerTableVC
 {
-    UIButton *centerBtn;
+    if (!_centerTableVC) {
+        _centerTableVC = [[YHCenterTableViewController alloc] init];
+    }
+    return _centerTableVC;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-//    [self setTopNavBarTitle:@"首页"];
 
     // 开启topImageView userInteractionEnabled，以便使后加上的button等部件能够事件响应
     topImageView.userInteractionEnabled = YES;
-    
+        
     [self setTopNavBarCenterBtn:@"首页" normalImageName:@"navigationbar_arrow_down" selectedImageName:@"navigationbar_arrow_up"];
-    YHLog(@"%@", centerBtn.titleLabel.text);
-    centerBtn.selected = NO;
+    self.centerBtn.selected = NO;
+    
+    [self setTopNavBarLeftButtonWithNorImageName:@"navigationbar_friendsearch" highImageName:@"navigationbar_friendsearch_highlighted"];
+    
+    [self setTopNavBarRightButtonWithNorImageName:@"navigationbar_pop" highImageName:@"navigationbar_pop_highlighted"];
     
     [self addATableView];
-    [self setTopNavBackButton];
-//    [self setTopNavBarLeftButtonWithImageName:@"navigationbar_friendsearch"];
-//    [self setTopNavBackButton];
-    
-    ////测试事件响应链test
-//    [self test];
 }
 
-////测试事件响应链test
-- (void)test
-{
-//- (void)test
-//{
-//    // UIView event respond
-////    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-//    //    view.center = self.view.center;
-//    //    view.backgroundColor = [UIColor greenColor];
-//    //    [self.view addSubview:view];
-//    
-//    // UIImageView event respond
-////    UIImageView *view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-////    view.center = self.view.center;
-////    view.backgroundColor = [UIColor greenColor];
-////    [self.view addSubview:view];
-//    
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//    button.frame = CGRectMake(0, 0, 100, 40);
-//    button.center = CGPointMake(100, 100);
-//    [button setTitle:@"nihao" forState:UIControlStateNormal];
-//    [button setTitle:@"click" forState:UIControlStateSelected];
-//    button.backgroundColor = [UIColor blueColor];
-//    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-//    NSLog(@"%i", button.selected);
-//    [view addSubview:button];
-//}
-//
-//- (void)buttonClick:(UIButton *)btn
-//{
-//    btn.selected = !btn.selected;
-//    YHLog(@"CLICKCLICKCLICKCLICKCLICK");
-//}
-}
-
+#pragma mark - 导航栏按钮点击
 - (void)centerBtnClick
 {
-//    centerBtn.selected = !centerBtn.selected;
-    centerBtn.selected = !centerBtn.selected;
-//    YHLog(@"CLICKCLICKCLICKCLICKCLICK");
+    self.centerBtn.selected = !self.centerBtn.selected;
+
+    YHCover *cover = [YHCover show];
+    cover.delegate = self;
     
-    YHLog(@"%@", YHKeyWindow);
+    CGFloat menuW = 200;
+    CGFloat menuX = (kScreenW - 200)*0.5;
+    CGFloat menuH = menuW;
+    CGFloat menuY = 55;
+    YHPopMenu *menu = [YHPopMenu showInRect:CGRectMake(menuX, menuY, menuW, menuH)];
+    menu.contentView = self.centerTableVC.view;
 }
 
-- (void)backBtnClick
+- (void)leftBtnClick
+{
+    
+}
+
+- (void)rightBtnClick
 {
     
 }
@@ -95,12 +74,18 @@
 - (void)addATableView
 {
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, kScreenW, kScrrenH-64-49) style:UITableViewStyleGrouped];
-    //    [self.view addSubview:tableView];
     [self.view insertSubview:tableView belowSubview:topImageView];
     tableView.delegate = self;
     tableView.dataSource = self;
 }
 
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 20;
+}
+
+#pragma mark - private method
 #pragma mark - UITableView实现
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -135,33 +120,13 @@
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark - delegate method
+- (void)coverDidClickCover:(YHCover *)cover
 {
-    return 20;
+    [YHPopMenu hide];
+    
+    self.centerBtn.selected = NO;
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - private method
-#pragma mark - 设置自定义导航栏的中间按钮
-- (UIButton *)setTopNavBarCenterBtn:(NSString *)title normalImageName:(NSString *)imageName selectedImageName:(NSString *)selImageName
-{
-    centerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    centerBtn.frame = CGRectMake(0, 25, self.view.frame.size.width, 30);
-    [centerBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-    [centerBtn setTitle:title forState:UIControlStateNormal];
-    [centerBtn setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-    [centerBtn setImage:[UIImage imageNamed:selImageName] forState:UIControlStateSelected];
-    [centerBtn addTarget:self action:@selector(centerBtnClick) forControlEvents:UIControlEventTouchUpInside];
-
-    [topImageView addSubview:centerBtn];
-    return centerBtn;
-}
-
-
 /*
 #pragma mark - Navigation
 
