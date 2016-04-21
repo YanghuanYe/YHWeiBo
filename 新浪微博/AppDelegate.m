@@ -7,10 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "YYHMainViewController.h"
-#import "YHNewFeatureController.h"
+#import "YHRootTool.h"
+#import "YHAccountTool.h"
 
-#define YHVersionKey @"version"
+#import "YHOAuthViewController.h"
 
 @interface AppDelegate ()
 
@@ -27,22 +27,13 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    // 获取当前version
-    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
-    
-    // 获取上个verision
-    NSString *previousVersion = [[NSUserDefaults standardUserDefaults] objectForKey:YHVersionKey];
-    
-    // 版本号对比加载页面
-    if ([currentVersion isEqualToString:previousVersion]) {
-        YYHMainViewController *mainVC = [[YYHMainViewController alloc] init];
-        self.window.rootViewController = mainVC;
-
+    if ([YHAccountTool account] == nil) {
+        YHOAuthViewController *OAuthVC = [[YHOAuthViewController alloc] init];
+        self.window.rootViewController = OAuthVC;
     } else {
-        YHNewFeatureController *newFeatureVC = [[YHNewFeatureController alloc] init];
-        self.window.rootViewController = newFeatureVC;
-        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:YHVersionKey];
+        [YHRootTool chooseRootViewController:self.window];
     }
+    
     
     [self.window makeKeyAndVisible];
     
