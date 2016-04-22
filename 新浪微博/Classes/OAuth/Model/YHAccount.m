@@ -32,7 +32,7 @@
 
 - (void)setExpires_in:(NSString *)expires_in
 {
-    _expires_in = _expires_in;
+    _expires_in = expires_in;
     
     _expires_date = [NSDate dateWithTimeIntervalSinceNow:[expires_in longLongValue]];
 }
