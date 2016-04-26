@@ -1,0 +1,34 @@
+//
+//  新浪微博.pch
+//  新浪微博
+//
+//  Created by apple on 16/4/18.
+//  Copyright © 2016年 YYH. All rights reserved.
+//
+
+#ifndef _____pch
+#define _____pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+// 导入头文件
+#ifdef __OBJC__
+
+#import "Macro.h"
+#import "YYHUtill.h"
+#import "UIImage+Image.h"
+
+#endif
+
+// 改变日志输入(NSLog)功能
+#ifdef DEBUG
+
+#define YHLog(...) NSLog(__VA_ARGS__)
+
+#else 
+
+#define YHLog(...)
+
+#endif
+
+#endif /* _____pch */
